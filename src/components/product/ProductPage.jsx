@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import api from '../../api'
 import { BASE_URL } from '../../api'
 
-const ProductPage = () => {
+const ProductPage = ({setNumCartItems}) => {
 
     const {slug} = useParams()
     const [product, setProduct] = useState({})
@@ -34,6 +34,7 @@ const ProductPage = () => {
         api.post("add_item/", newItem).then(res => {
             console.log(res.data)
             setInCart(true)
+            setNumCartItems(curr => curr + 1)
         })
         .catch(err => {
             console.log(err.message)

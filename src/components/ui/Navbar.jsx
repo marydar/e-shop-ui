@@ -4,7 +4,7 @@ import { FaCartShopping } from 'react-icons/fa6'
 import styles from './Navbar.module.css'
 import NavBarLink from './NavBarLink'
 
-const Navbar = () => {
+const Navbar = ({numCartItems}) => {
   return (
     <nav className={`navbar navbar-expand-lg navbar-light shadow-sm py-3 ${styles.stickyNavbar}`}>
         <div className='container'>
@@ -28,7 +28,7 @@ const Navbar = () => {
                         className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'
                         style={{ fontSize: '0.85rem', padding: '0.5em 0.65em', backgroundColor: '#262735' }}
                     >
-                        12
+                    {numCartItems}
                     </span>
                 </Link>
 

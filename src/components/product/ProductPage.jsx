@@ -11,6 +11,18 @@ const ProductPage = () => {
     const [product, setProduct] = useState({})
     const [similarProducts, setSimilarProducts] = useState([])
     const [loading, setLoading] = useState(false)
+    const cart_code = localStorage.getItem('cart_code')
+
+    const newItem = {cart_code: cart_code, product_id: product.id}
+
+    function add_item(){
+        api.post("add_item/", newItem).then(res => {
+            console.log(res.data)
+        })
+        .catch(err => {
+            console.log(err.message)
+        })
+    }
 
     useEffect(function(){
         setLoading(true)
@@ -53,7 +65,7 @@ const ProductPage = () => {
                         {product.description}
                     </p>
                     <div className='d-flex'>
-                        <button className='btn btn-outline-light flex-shrink-0 text-white' type ='button'>
+                        <button className='btn btn-outline-light flex-shrink-0 text-white' type ='button' onClick={add_item}>
                             <i className='me-1 bi-cart-fill'></i>
                             Add to Cart
                         </button>

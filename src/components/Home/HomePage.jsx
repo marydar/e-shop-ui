@@ -1,15 +1,22 @@
-import React, { useEffect , useState} from 'react'
+import React, { use, useEffect , useState} from 'react'
 import Header from './Header'
 import CardContainer from './CardContainer'
 import api from '../../api'
 import PlaceHolderContainer from '../ui/PlaceHolderContainer'
 import Error from '../ui/Error'
+import { randomValue } from '../../../GenerateCartCode'
 
 const HomePage = () => {
 
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
+
+    useEffect(function(){
+        if(localStorage.getItem('cart_code') === null){
+            localStorage.setItem('cart_code', randomValue)
+        }
+    }, [])
 
     useEffect(function(){
         setLoading(true)

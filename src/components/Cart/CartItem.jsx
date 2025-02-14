@@ -1,6 +1,8 @@
 import React from 'react'
+import { BASE_URL } from '../../api'
 
-const CartItem = () => {
+
+const CartItem = ({item}) => {
   return (
     <div className='col-md-12'>
       {/* cart items */}
@@ -9,20 +11,20 @@ const CartItem = () => {
       style={{backgroundColor: '#262735', borderRadius: '8px'}}
       >
         <img
-        src='https://via.placeholder.com/100'
+        src={`${BASE_URL}${item.Product.image}`}
         alt='product image'
         className='img-fluid'
         style={{width: '80px', height: '80px', objectFit: 'cover', borderRadius: '5px'}}
         />
         <div className='ms-3 flex-grow-1'>
-          <h5 className='mb-1 text-white'>Product Name</h5>
-          <p className='mb-0 text-white'>$ 200.00</p>
+          <h5 className='mb-1 text-white'>{item.Product.name}</h5>
+          <p className='mb-0 text-white'>{`$${item.total}`}</p>
         </div>
         <div className='d-flex align-items-center'>
           <input
           type='number'
           className='form-control me-3'
-          defaultValue="1"
+          defaultValue={item.quantity}
           style={{width: '70px'}}
           />
           <button className='btn btn-danger btn-sm' type='button'>Remove</button>

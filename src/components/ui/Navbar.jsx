@@ -22,7 +22,7 @@ const Navbar = ({numCartItems}) => {
             </button>
             <div className='collapse navbar-collapse' id='navbarContent'>
                 <NavBarLink />
-                <Link className={`btn btn-dark ms-3 rounded-pill position-relative ${styles.responsiveCart}`}>
+                <Link to="/cart" className={`btn btn-dark ms-3 rounded-pill position-relative ${styles.responsiveCart}`}>
                     <FaCartShopping />
                     <span
                         className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'

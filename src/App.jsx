@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainLayout from './layout/MainLayout'
-import HomePage from './components/home/HomePage'
+import HomePage from './components/Home/HomePage'
 import NotFoundPage from './components/ui/NotFoundPage'
 import ProductPage from './components/product/ProductPage'
 import CartPage from './components/Cart/CartPage'
@@ -36,7 +36,7 @@ export const App = () => {
           <Route index element={<HomePage/>} />
           <Route path="products/:slug" element={<ProductPage setNumCartItems={setNumCartItems}/>} />
           <Route path="cart" element={<CartPage setNumCartItems={setNumCartItems}/>} />
-          <Route path="checkout" element={<ProtectedRoute><CheckoutPage/></ProtectedRoute>} />
+          <Route path="checkout" element={<CheckoutPage/>} />
           <Route path="login" element={<LoginPage/>} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

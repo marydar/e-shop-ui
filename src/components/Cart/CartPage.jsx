@@ -4,27 +4,35 @@ import CartItem from './CartItem'
 import styles from './CartPage.module.css'
 import api from '../../api'
 import { useState } from 'react'
+import Spinner from '../ui/Spinner'
 
 
-const CartPage = () => {
+const CartPage = ({setNumCartItems}) => {
 
     const cart_code = localStorage.getItem("cart_code")
     const [cartItems, setCartItems] = useState([])
-    const [cartTotal, setCartTotals] = useState(0.00)
+    const [cartTotals, setCartTotals] = useState(0.00)
     const tax = 40.0
+    const [loading, setLoading] = useState(false)
     useEffect(function(){
+        setLoading(true)
         if(cart_code){
             api.get(`get_cart?cart_code=${cart_code}`)
             .then(res =>{
                 console.log(res.data)
                 setCartItems(res.data.items)
                 setCartTotals(res.data.sum_total)
+                setLoading(false)
             })
             .catch(err => {
                 console.log(err.message)
+                setLoading(false)
             })
         }
     }, [])
+    if(loading){
+        return <Spinner />
+    }
 
     if(cartItems.length < 1){
         return (
@@ -38,11 +46,11 @@ const CartPage = () => {
 
                 <div className='col-md-8'>
                     {cartItems.map(item => (
-                        <CartItem key={item.id} item={item}/>
+                        <CartItem key={item.id} item={item} cartItems={cartItems} setCartTotals={setCartTotals} setNumCartItems={setNumCartItems} setCartItems={setCartItems}/>
                     ))}
                 </div>
 
-                <CartSummery cartTotal={cartTotal} tax={tax}/>
+                <CartSummery cartTotals={cartTotals} tax={tax}/>
 
             </div>
         </div>

@@ -2,10 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 // import toFixed from '../../utils/toFixed'
 
-const CartSummery = ({cartTotal, tax}) => {
-    const subTotal = cartTotal
-    const cartTax = tax
-    const total = (subTotal + cartTax)
+const CartSummery = ({cartTotals, tax}) => {
+    // const subTotal = cartTotal
+    // const cartTax = tax
+    // const total = (subTotal + cartTax)
   return (
     <div className='col-md-4 align-self-start'>
         <div className='card' style={{backgroundColor: '#262735'}}>
@@ -14,15 +14,15 @@ const CartSummery = ({cartTotal, tax}) => {
                 <hr/>
                 <div className='d-flex justify-content-between text-white'>
                     <span>Sub Total:</span>
-                    <span>{`$${subTotal}`}</span>
+                    <span>{`$${cartTotals}`}</span>
                 </div>
                 <div className='d-flex justify-content-between text-white'>
                     <span>Tax:</span>
-                    <span>{`$${cartTax}`}</span>
+                    <span>{`$${tax}`}</span>
                 </div>
                 <div className='d-flex justify-content-between mb-3 text-white'>
                     <span>Total:</span>
-                    <span>{`$${total}`}</span>
+                    <span>{`$${cartTotals + tax}`}</span>
                 </div>
                 <Link to='/checkout'>
                 <button 

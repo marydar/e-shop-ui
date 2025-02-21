@@ -7,6 +7,7 @@ import ProductPage from './components/product/ProductPage'
 import CartPage from './components/Cart/CartPage'
 import { useState } from 'react'
 import api from './api'
+import CheckoutPage from './components/checkout/CheckoutPage'
 
 export const App = () => {
 
@@ -33,6 +34,7 @@ export const App = () => {
           <Route index element={<HomePage/>} />
           <Route path="products/:slug" element={<ProductPage setNumCartItems={setNumCartItems}/>} />
           <Route path="cart" element={<CartPage setNumCartItems={setNumCartItems}/>} />
+          <Route path="checkout" element={<CheckoutPage/>} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

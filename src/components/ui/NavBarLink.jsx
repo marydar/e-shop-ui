@@ -6,10 +6,17 @@ import { useNavigate } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
 
 const NavBarLink = () => {
-    const {isAuthenticated} = useContext(AuthContext)
-    // useEffect(() => {
-    //     console.log("isAuth", isAuthenticated)
-    // },  [isAuthenticated])  
+    const {isAuthenticated, username, setIsAuthenticated, setUsername} = useContext(AuthContext)
+    const navigate = useNavigate()
+    
+
+    function logout(){
+        localStorage.removeItem("access")
+        localStorage.removeItem("refresh")
+        setIsAuthenticated(false)
+        setUsername("")
+        navigate("/")
+    }
   return (
     <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
         {isAuthenticated ?
@@ -18,12 +25,13 @@ const NavBarLink = () => {
                 <NavLink
                     to="/profile"
                     className={({isActive}) => isActive ? 'nav-link active fw-semibold text-white' : 'nav-link fw-semibold text-white'}end
-                >Hi, mary</NavLink>
+                >{username}</NavLink>
             </li>
             <li className='nav-item'>
                 <NavLink
-                    to="/logout"
+                    to="/"
                     className={({isActive}) => isActive ? 'nav-link active fw-semibold text-white' : 'nav-link fw-semibold text-white'}end
+                    onClick={logout}
                 >Logout</NavLink>
             </li>
         </>

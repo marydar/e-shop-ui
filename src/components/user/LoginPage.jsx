@@ -4,8 +4,12 @@ import { useState } from 'react'
 import api from '../../api'
 import Error from '../ui/Error'
 import {useNavigate , useLocation } from 'react-router-dom'
+import { useContext } from 'react'
+import { AuthContext } from '../context/AuthContext'
 
 const LoginPage = () => {
+
+    const {isAuthenticated, setIsAuthenticated} = useContext(AuthContext)
 
     const location = useLocation()
     const navigate = useNavigate()
@@ -29,14 +33,8 @@ const LoginPage = () => {
             localStorage.setItem("refresh", res.data.refresh)
             setUsername("")
             setPassword("")
-
-
-            
-
-            //navigate to checkout route
-            // const from = location.state.from.pathname || "/";
-            // navigate(from, {replace: true});
-            navigate("/checkout");
+            setIsAuthenticated(true)
+            navigate("/");
 
         })
         .catch(err => {

@@ -1,8 +1,73 @@
-# React + Vite
+# E-Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+E-Shop is a modern and responsive e-commerce web application built using Django (REST API) for the backend and React with Vite for the frontend. It allows users to browse products, add them to the cart, update quantities, and proceed to checkout with payment options.
 
-Currently, two official plugins are available:
+## Features
+- **User Authentication**: Sign up and log in to manage your cart and purchases.
+- **Product Listing**: View all available products on the home page.
+- **Product Details**: Click on a product to see more details on its individual page.
+- **Shopping Cart**: Add products to your cart, update quantities, and remove items.
+- **Checkout Process**: View cart summary and proceed to checkout with payment options.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- **Frontend**: React, Vite, Tailwind CSS, Axios
+- **Backend**: Django, Django REST Framework (DRF)
+- **Database**: PostgreSQL / SQLite (depending on the environment)
+- **API Calls**: Handled with Axios
+
+## Installation
+### Backend (Django + DRF)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/eshop.git
+   cd eshop
+   ```
+2. Set up a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. Apply migrations and start the server:
+   ```bash
+   python manage.py migrate
+   python manage.py runserver
+   ```
+
+### Frontend (React + Vite)
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Screenshots
+### Login Page
+![Login Page](screenshots/login.png)
+
+### Home Page
+![Home Page](screenshots/home.png)
+
+### Product Page
+![Product Page](screenshots/product.png)
+
+### Cart Page
+![Cart Page](screenshots/cart.png)
+
+### Checkout Page
+![Checkout Page](screenshots/checkout.png)
+
+## Author
+[MaryamDar](https://github.com/marydar)
+

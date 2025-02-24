@@ -52,6 +52,16 @@ E-Shop is a modern and responsive e-commerce web application built using Django 
    npm run dev
    ```
 
+### user for fast login
+- username: 
+   ```bash
+   ghost
+   ```
+- password:
+   ```bash
+   Abc1234!
+   ```
+
 ## Screenshots
 ### Login Page
 ![Login Page](screenshots/login.png)

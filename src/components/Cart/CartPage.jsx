@@ -22,7 +22,7 @@ const CartPage = ({setNumCartItems}) => {
         )
     }
     return (
-        <div className={`container my-3 py-3 overflow-y-scroll`} style={{height:"80vh"}}> 
+        <div className={`container my-3 py-3 overflow-y-scroll`} style={{height:"100vh"}}> 
             <h5 className='mb-4 text-white'>Shopping Cart</h5>
             <div className='row'>
 
